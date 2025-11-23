@@ -1,0 +1,38 @@
+services:
+  frontend:
+    build: ./front-react
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./back-express
+    ports:
+      - "3001:3001"
+    environment:
+      - DB_USER=sa
+      - DB_PASSWORD=DICRI123#$
+      - DB_SERVER=db
+      - DB_DATABASE=ExpedientesDB
+      - JWT_SECRET=SecretKeyTestDICRI
+    depends_on:
+      - db
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    user: root
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=DICRI123#$
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql_data:/var/opt/mssql
+      - ./dbmssql/init.sql:/init.sql
+      - ./dbmssql/entrypoint.sh:/entrypoint.sh
+    command: /bin/bash -c "apt-get update && apt-get install -y mssql-tools unixodbc-dev && chown -R mssql:mssql /var/opt/mssql && su mssql -c '/entrypoint.sh'"
+
+volumes:
+  mssql_data:

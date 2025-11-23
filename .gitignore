@@ -1,0 +1,6 @@
+/back-express/node_modules
+/front-react/node_modules
+/front-react/build
+/front-react/dist
+/front-react/.cache
+
