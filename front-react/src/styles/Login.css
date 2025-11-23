@@ -1,0 +1,96 @@
+/* Ensure html and body take full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: sans-serif;
+}
+
+/* Full page background */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+
+/* Card container */
+.login-card {
+  background-color: #ffffff; /* White card */
+  padding: 40px 30px;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px; /* Slightly larger max width */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+/* Brand / title */
+.login-card .brand {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.login-card .brand h2 {
+  margin: 0;
+  color: #0b2545; /* Dark blue title */
+  font-size: 24px;
+}
+
+/* Inputs */
+.login-card .input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Button */
+.login-card .btn {
+  width: 100%;
+  padding: 12px 15px;
+  background-color: #0b2545;
+  color: #ffffff;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-card .btn:hover {
+  background-color: #0d3068;
+}
+
+/* Error message */
+.login-card .error {
+  color: #ff4d4f;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .login-card {
+    max-width: 100%;
+    padding: 30px 20px;
+  }
+
+  .login-card .brand h2 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-card .brand h2 {
+    font-size: 20px;
+  }
+}
+

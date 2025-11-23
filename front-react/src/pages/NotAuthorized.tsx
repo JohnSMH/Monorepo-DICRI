@@ -1,3 +1,12 @@
+import "../styles/NotAuthorized.css";
+
 export default function NotAuthorized() {
-  return <h2 style={{ textAlign: "center", marginTop: "3rem" }}>No autorizado</h2>;
+  return (
+    <div className="not-authorized-page">
+      <div className="not-authorized-card">
+        <h2>No autorizado</h2>
+      </div>
+    </div>
+  );
 }
+

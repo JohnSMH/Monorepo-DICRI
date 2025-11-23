@@ -11,8 +11,8 @@ export async function createReview(data) {
     .execute("spCreateReview");
 
   const result2 = await pool.request()
-    .input("id", sql.Int, result.recordset[0].id)
-    .input("estado", sql.VarChar, data.estado)
+    .input("ExpedienteID", sql.Int, data.expediente_id)
+    .input("NuevoEstado", sql.VarChar, data.estado)
     .execute("spUpdateExpedienteEstado");
 
   return result.recordset[0];

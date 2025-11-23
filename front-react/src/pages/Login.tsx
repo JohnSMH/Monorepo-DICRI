@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useAuth } from "../context/authContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../styles/Login.css";
 
 export default function LoginPage() {
   const { login } = useAuth();
@@ -29,46 +30,20 @@ export default function LoginPage() {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        height: "100vh",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "#f4f4f4",
-      }}
-    >
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          background: "white",
-          padding: "2rem",
-          borderRadius: "8px",
-          width: "320px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-        }}
-      >
-        <h2 style={{ textAlign: "center" }}>Iniciar Sesión</h2>
+    <div className="login-page">
+      <form onSubmit={handleSubmit} className="login-card">
+        <div className="brand">
+          <h2>Iniciar Sesión</h2>
+        </div>
 
-        {error && (
-          <div style={{ color: "red", textAlign: "center", fontSize: "0.9rem" }}>
-            {error}
-          </div>
-        )}
+        {error && <div className="error">{error}</div>}
 
         <input
           type="text"
           placeholder="Usuario"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          style={{
-            padding: "0.8rem",
-            borderRadius: "6px",
-            border: "1px solid #ccc",
-          }}
+          className="input"
           required
         />
 
@@ -77,26 +52,11 @@ export default function LoginPage() {
           placeholder="Contraseña"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          style={{
-            padding: "0.8rem",
-            borderRadius: "6px",
-            border: "1px solid #ccc",
-          }}
+          className="input"
           required
         />
 
-        <button
-          type="submit"
-          style={{
-            padding: "0.8rem",
-            borderRadius: "6px",
-            border: "none",
-            background: "#2d6cdf",
-            color: "white",
-            cursor: "pointer",
-            fontWeight: "bold",
-          }}
-        >
+        <button type="submit" className="btn">
           Entrar
         </button>
       </form>

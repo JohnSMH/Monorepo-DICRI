@@ -3,6 +3,7 @@ import { AuthProvider } from "./context/authContext";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 import RoleRoute from "./components/RoleRoute";
+import LoginRedirect from "./components/LoginRedirect";
 
 import LoginPage from "./pages/Login";
 import NotAuthorized from "./pages/NotAuthorized";
@@ -14,6 +15,7 @@ import ExpedientesPage from "./pages/ExpedientesPage";
 import RevisionesPage from "./pages/RevisionesPages";
 import EvidenciasPage from "./pages/EvidenciasPage";
 import RevisionPage from "./pages/RevisionPage";
+import ReportsPage from "./pages/ReportsPage";
 
 export default function App() {
   return (
@@ -22,7 +24,11 @@ export default function App() {
         <Routes>
           
           {/* Public */}
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={
+            <LoginRedirect>
+              <LoginPage />
+            </LoginRedirect>
+            } />
           <Route path="/not-authorized" element={<NotAuthorized />} />
 
           {/* Protected routes */}
@@ -59,27 +65,45 @@ export default function App() {
           <Route
             path="/revisiones"
             element={
-              <RoleRoute allowed={["coordinador", "admin"]}>
-                <RevisionesPage />
-              </RoleRoute>
+              <ProtectedRoute>
+                  <RoleRoute allowed={["coordinador", "admin"]}>
+                  <RevisionesPage />
+                  </RoleRoute>
+              </ProtectedRoute>
             }
           />
 
           <Route
             path="/revisiones/:expedienteId"
             element={
-              <RoleRoute allowed={["coordinador", "admin"]}>
+              <ProtectedRoute>
+                <RoleRoute allowed={["coordinador", "admin"]}>
                 <RevisionPage />
-              </RoleRoute>
+                </RoleRoute>
+              </ProtectedRoute>
             }
           />
 
           <Route
             path="/expedientes/:id/evidencias"
             element={
-              <RoleRoute allowed={["tecnico", "admin"]}>
+              <ProtectedRoute>
+                <RoleRoute allowed={["tecnico", "admin"]}>
                 <EvidenciasPage />
-              </RoleRoute>
+                </RoleRoute>
+              </ProtectedRoute>
+              
+            }
+          />
+
+          <Route
+            path="/reportes"
+            element={
+              <ProtectedRoute>
+                <RoleRoute allowed={["admin","coordinador"]}>
+                <ReportsPage />
+                </RoleRoute>
+              </ProtectedRoute>
             }
           />
 

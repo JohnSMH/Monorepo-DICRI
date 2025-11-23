@@ -359,6 +359,42 @@ BEGIN
 END;
 GO
 
+CREATE PROCEDURE OR ALTER spCreateReport
+    @fechaInicio DATETIME = NULL,
+    @fechaFin DATETIME = NULL,
+    @estado VARCHAR(20) = NULL 
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        COUNT(*) AS total_expedientes
+    FROM Expedientes
+    WHERE (@fechaInicio IS NULL OR fecha_registro >= @fechaInicio)
+      AND (@fechaFin IS NULL OR fecha_registro <= @fechaFin)
+      AND (@estado IS NULL OR estado = @estado);
+
+    -- Filtramos aprobaciones
+    SELECT 
+        COUNT(*) AS total_aprobado
+    FROM Reviews r
+    INNER JOIN Expedientes e ON r.expediente_id = e.id
+    WHERE r.estado = 'aprobado'
+      AND (@fechaInicio IS NULL OR e.fecha_registro >= @fechaInicio)
+      AND (@fechaFin IS NULL OR e.fecha_registro <= @fechaFin)
+      AND (@estado IS NULL OR e.estado = @estado);
+
+    -- Filtramos rechazos
+    SELECT 
+        COUNT(*) AS total_rechazado
+    FROM Reviews r
+    INNER JOIN Expedientes e ON r.expediente_id = e.id
+    WHERE r.estado = 'rechazado'
+      AND (@fechaInicio IS NULL OR e.fecha_registro >= @fechaInicio)
+      AND (@fechaFin IS NULL OR e.fecha_registro <= @fechaFin)
+      AND (@estado IS NULL OR e.estado = @estado);
+END
+GO
 
 -- =================================================================DATOS INICIALES=================================================
 INSERT INTO Users (username, password_hash, Role)

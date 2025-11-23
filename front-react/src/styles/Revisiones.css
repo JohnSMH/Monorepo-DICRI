@@ -1,0 +1,120 @@
+.revisiones-page {
+  background-color: #0b2545; /* Dark blue */
+  min-height: 100vh;
+  padding: 20px;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Titles */
+.revisiones-page h1,
+.revisiones-page h2,
+.revisiones-page h3 {
+  margin-bottom: 20px;
+}
+
+/* List/grid for expedientes on ReviewsListPage */
+.revisiones-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Card style for expediente and evidencia */
+.expediente-card {
+  background-color: #ffffff;
+  color: #0b2545;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+/* Button inside card or links */
+.expediente-card button {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 8px 14px;
+  background-color: #0b2545;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.expediente-card button:hover {
+  background-color: #1a3a6b;
+}
+
+/* Disabled button */
+.expediente-card button:disabled,
+.expediente-btn.disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  color: #666;
+}
+
+/* Link wrapper for button */
+.expediente-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  padding: 0;
+}
+
+/* Approve / Reject buttons on single ReviewPage */
+.review-actions {
+  margin-top: 20px;
+}
+
+.review-actions .approve-btn {
+  background-color: #28a745;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background 0.3s ease;
+}
+
+.review-actions .approve-btn:hover {
+  background-color: #218838;
+}
+
+.review-actions .reject-btn {
+  background-color: #dc3545;
+  color: #ffffff;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.review-actions .reject-btn:hover {
+  background-color: #c82333;
+}
+
+/* Textarea for justification */
+.justificacion-textarea {
+  width: 100%;
+  min-height: 80px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+/* Evidence card spacing (single ReviewPage) */
+.revisiones-page .expediente-card + .expediente-card {
+  margin-top: 15px;
+}

@@ -1,0 +1,111 @@
+/* Dashboard.css */
+
+/* Page background */
+.dashboard-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #0b2545; /* Dark blue */
+  color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* Menu bar */
+.dashboard-menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Push left and right apart */
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 10px;
+}
+
+.menu-left {
+  display: flex;
+  gap: 10px; /* spacing between links */
+  flex-wrap: wrap;
+}
+
+.menu-right button {
+  background-color: #ffffff;
+  color: #0b2545;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.menu-right button:hover {
+  background-color: #f0f0f0;
+  color: #0b2545;
+}
+
+/* Menu links */
+.dashboard-menu a,
+.dashboard-menu button {
+  background-color: #ffffff; /* White button */
+  color: #0b2545; /* Dark blue text */
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease, color 0.3s ease;
+  font-size: 16px;
+  margin-top: 10px; 
+  margin-left: 5px;
+}
+
+.dashboard-menu a:hover,
+.dashboard-menu button:hover {
+  background-color: #f0f0f0; /* Slight gray on hover */
+  color: #0b2545;
+}
+
+/* Dashboard cards */
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Single card */
+.dashboard-card {
+  background-color: #ffffff; /* White card */
+  color: #0b2545; /* Dark blue text */
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .dashboard-menu {
+    flex-direction: column;
+  }
+}
+
+.dashboard-card button {
+  background-color: #0b2545; 
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.dashboard-card button:hover {
+  background-color: #1a3a6b; 
+}

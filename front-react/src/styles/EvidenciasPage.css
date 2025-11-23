@@ -1,0 +1,109 @@
+.evidencias-page {
+  background-color: #0b2545; /* Dark blue */
+  min-height: 100vh;
+  padding: 20px;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+/* Page title */
+.evidencias-page h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+/* Collapsible form card */
+.evidencias-form-card {
+  background-color: #ffffff;
+  color: #0b2545;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  overflow: hidden;
+}
+
+/* Hidden when collapsed */
+.evidencias-form-card.collapsed {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 20px;
+  margin-bottom: 0;
+}
+
+/* Form layout */
+.evidencias-form-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Inputs */
+.evidencias-form-card input {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+.evidencias-form-card button,
+.evidencia-card button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+/* Add/update button */
+.evidencias-form-card button {
+  background-color: #0b2545;
+  color: #ffffff;
+}
+
+.evidencias-form-card button:hover {
+  background-color: #1a3a6b;
+}
+
+/* Evidencias cards list */
+.evidencias-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+/* Single evidencia card */
+.evidencia-card {
+  background-color: #ffffff;
+  color: #0b2545;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease;
+}
+
+.evidencia-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card buttons */
+.evidencia-card button {
+  background-color: #0b2545;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+.evidencia-card button:hover {
+  background-color: #1a3a6b;
+}

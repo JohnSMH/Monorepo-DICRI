@@ -1,0 +1,24 @@
+.not-authorized-page {
+  background-color: #0b2545; 
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.not-authorized-card {
+  background-color: #ffffff; 
+  color: #0b2545;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  text-align: center;
+}
+
+.not-authorized-card h2 {
+  font-size: 28px;
+  margin: 0;
+}

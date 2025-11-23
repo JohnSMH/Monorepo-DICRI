@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import api from "../api/api";
+import "../styles/Revisiones.css";
+import ExpedienteCard from "./ExpedienteCard";
 
 export default function ReviewsListPage() {
   const [expedientes, setExpedientes] = useState<any[]>([]);
@@ -15,25 +16,25 @@ export default function ReviewsListPage() {
     load();
   }, []);
 
-  if (loading) return <p>Cargando...</p>;
+  if (loading) return <p style={{ color: "#fff" }}>Cargando...</p>;
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className="revisiones-page">
       <h1>Revisiones</h1>
       <p>Selecciona un expediente para revisarlo.</p>
 
-      <ul>
+      <div className="revisiones-list">
         {expedientes.map((exp) => (
-          <li key={exp.id} style={{ marginBottom: 10 }}>
-            <b>{exp.titulo}</b> – {exp.descripcion}
-
-            {" "}
-            <Link to={`/revisiones/${exp.id}`} style={{ marginLeft: 10 }}>
-              Revisar
-            </Link>
-          </li>
+          <ExpedienteCard
+            key={exp.id}
+            id={exp.id}
+            titulo={exp.titulo}
+            descripcion={exp.descripcion}
+            estado={exp.estado}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
+
